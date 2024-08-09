@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ประเภทเค้ก - ร้านเบเกอรี่ของเรา</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #4a4a4a;
+            background-color: #fff8f0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f4e1d2;
+            border-bottom: 2px solid #d4a373;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-size: 18px; /* ขนาดฟอนต์เดียวกัน */
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #d4a373;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px; /* ขนาดโลโก้เดียวกัน */
+            margin-right: 10px;
+        }
+
+        .logo h1 {
+            color: #4a4a4a;
+            margin: 0;
+            font-size: 24px; /* ขนาดฟอนต์เดียวกัน */
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .hamburger .line {
+            width: 25px;
+            height: 3px;
+            background-color: #4a4a4a;
+            margin: 4px 0;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            nav.active .nav-links {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                background-color: #333;
+                border-top: 2px solid #d4a373;
+            }
+
+            .nav-links {
+                display: none;
+            }
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .category {
+            margin-bottom: 40px;
+        }
+
+        .category h2 {
+            text-align: center;
+            color: #a56336;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .category-item {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .item img {
+            width: 100%;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .item h3 {
+            color: #333;
+            margin: 15px 0;
+            font-size: 18px;
+        }
+
+        .item p {
+            color: #666;
+            padding: 0 10px 15px 10px;
+            font-size: 14px;
+        }
+
+        .item a {
+            display: block;
+            padding: 10px;
+            background-color: #a56336;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 0 0 10px 10px;
+            font-size: 16px;
+        }
+
+        .item a:hover {
+            background-color: #d4a373;
+        }
+
+        .footer {
+            background-color: #333;
+            padding: 20px;
+            text-align: left;
+            margin-top: 20px;
+            border-top: 2px solid #d4a373;
+            color: #fff;
+        }
+
+        .main-categories {
+            margin-bottom: 20px;
+        }
+
+        .main-categories h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .main-categories ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .main-categories li {
+            margin-bottom: 8px;
+        }
+
+        .main-categories li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .main-categories li a:hover {
+            color: #d4a373;
+        }
+
+        .footer p {
+            font-size: 12px;
+            color: #ccc;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="บ้านแฟรงค์เบเกอร์">
+            <h1>ประเภทเค้ก - ร้านเบเกอรี่ของเรา</h1>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="type.html">ประเภท</a></li>
+                <li><a href="menu.html">เมนู</a></li>
+                <li><a href="order_guide.html">วิธีการสั่งซื้อ</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="cart.html">ตะกร้าสินค้า</a></li> <!-- เพิ่มลิงก์ไปยังตะกร้าสินค้า -->
+            </ul>
+            <div class="hamburger" onclick="toggleNav()">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <div class="category" id="special-occasion">
+            <h2>วันพิเศษ</h2>
+            <div class="category-item">
+                <div class="item">
+                    <img src="bdcake2.jpg" alt="Special Occasion Cake 1">
+                    <h3>เค้กวันเกิด</h3>
+                    <p>เค้กที่สมบูรณ์แบบสำหรับการเฉลิมฉลองวันเกิด</p>
+                    <a href="order_bdcake.html">สั่งซื้อ</a>
+                </div>
+                <div class="item">
+                    <img src="cupcake.jpg" alt="Special Occasion Cake 2">
+                    <h3>คัพเค้ก</h3>
+                    <p>เค้กที่---</p>
+                    <a href="order.html#special-occasion-cake2">สั่งซื้อ</a>
+                </div>
+            </div>
+        </div>
+        <div class="category" id="cakes">
+            <h2>เค้ก</h2>
+            <div class="category-item">
+                <div class="item">
+                    <img src="choc.jpg" alt="Cake 1">
+                    <h3>เค้กช็อคโกแลต</h3>
+                    <p>เค้กช็อคโกแลตที่อร่อยและเข้มข้น</p>
+                    <a href="order.html#cake1">สั่งซื้อ</a>
+                </div>
+                <div class="item">
+                    <img src="mapraw.jpg" alt="Cake 2">
+                    <h3>เค้กมะพร้าว</h3>
+                    <p>เค้กวานิลลาที่นุ่มนวลและหอมหวาน</p>
+                    <a href="order.html#cake2">สั่งซื้อ</a>
+                </div>
+            </div>
+        </div>
+        <div class="category" id="brownies">
+            <h2>บราวนี่</h2>
+            <div class="category-item">
+                <div class="item">
+                    <img src="browniee.jpg" alt="Brownie 1">
+                    <h3>บราวนี่ช็อคโกแลต</h3>
+                    <p>บราวนี่ที่เข้มข้นด้วยช็อคโกแลต</p>
+                    <a href="order_brownie.html">สั่งซื้อ</a>
+                </div>
+                <div class="item">
+                    <img src="conflake.jpg" alt="Brownie 2">
+                    <h3>คอนเฟลกคาราเมล</h3>
+                    <p>บราวนี่ช็อคโกแลตกับวอลนัทกรอบ</p>
+                    <a href="order.html#brownie2">สั่งซื้อ</a>
+                </div>
+            </div>
+        </div>
+        <div class="category" id="banana-cakes">
+            <h2>เค้กกล้วยหอม</h2>
+            <div class="category-item">
+                <div class="item">
+                    <img src="cakesom.jpg" alt="Banana Cake 1">
+                    <h3>เค้กกล้วยหอมแบบดั้งเดิม</h3>
+                    <p>เค้กกล้วยหอมที่อร่อยและนุ่มนวล</p>
+                    <a href="order.html#banana-cake1">สั่งซื้อ</a>
+                </div>
+                <div class="item">
+                    <img src="minicake2.jpg" alt="Banana Cake 2">
+                    <h3>มินิเค้ก</h3>
+                    <p>มินิเค้ก---</p>
+                    <a href="order.html#banana-cake2">สั่งซื้อ</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <div class="main-categories">
+                <h3>MAIN CATEGORIES</h3>
+                <ul>
+                    <li><a href="menu.html">เมนูขนมของเรา</a></li>
+                    <li><a href="order_guide.html">วิธีการสั่งซื้อ</a></li>
+                    <li><a href="reviews.html">รีวิวขนม</a></li>
+                    <li><a href="#contactOptions">ติดต่อเรา</a></li>
+                </ul>
+            </div>
+            <p>&copy; 2567 บ้านแฟรงค์เบเกอร์. สงวนลิขสิทธิ์ทุกประการ.</p>
+        </div>
+    </footer>
+    <script>
+        // Toggle navigation menu for mobile
+        function toggleNav() {
+            var nav = document.querySelector('nav');
+            nav.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ตะกร้าสินค้า - ร้านเบเกอรี่ของเรา</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #4a4a4a;
+            background-color: #fff8f0;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #f4e1d2;
+            border-bottom: 2px solid #d4a373;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+            color: #a56336;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            background-color: #f4e1d2;
+        }
+
+        .nav-links {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin: 0;
+        }
+
+        .nav-links li {
+            margin: 0 15px;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #4a4a4a;
+            font-weight: bold;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #d4a373;
+        }
+
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        .order-details {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .order-details h2 {
+            text-align: center;
+            color: #a56336;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .detail {
+            margin-bottom: 15px;
+        }
+
+        .detail label {
+            font-weight: bold;
+        }
+
+        footer {
+            text-align: center;
+            background-color: #f4e1d2;
+            color: #4a4a4a;
+            padding: 10px 0;
+            border-top: 2px solid #d4a373;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ตะกร้าสินค้า - ร้านเบเกอรี่ของเรา</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="type.html">ประเภท</a></li>
+                <li><a href="menu.html">เมนู</a></li>
+                <li><a href="order_guide.html">วิธีการสั่งซื้อ</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="order-details">
+            <h2>รายละเอียดการสั่งซื้อ</h2>
+            <div class="detail">
+                <label>ชื่อ-นามสกุล:</label> <span id="name"></span>
+            </div>
+            <div class="detail">
+                <label>E-mail:</label> <span id="email"></span>
+            </div>
+            <div class="detail">
+                <label>เบอร์ติดต่อ:</label> <span id="phone"></span>
+            </div>
+            <div class="detail">
+                <label>รสชาติ:</label> <span id="flavor"></span>
+            </div>
+            <div class="detail">
+                <label>ขนาดปอนด์:</label> <span id="pound"></span>
+            </div>
+            <div class="detail">
+                <label>วันที่รับ:</label> <span id="date"></span>
+            </div>
+            <div class="detail">
+                <label>ข้อความบนเค้ก:</label> <span id="message"></span>
+            </div>
+            <div class="detail price">
+                ราคา: <span id="price"></span>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Our Bakery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function getParameterByName(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+            document.getElementById('name').innerText = getParameterByName('name');
+            document.getElementById('email').innerText = getParameterByName('email');
+            document.getElementById('phone').innerText = getParameterByName('phone');
+            document.getElementById('flavor').innerText = getParameterByName('flavor');
+            document.getElementById('pound').innerText = getParameterByName('pound');
+            document.getElementById('date').innerText = getParameterByName('date');
+            document.getElementById('message').innerText = getParameterByName('message');
+            
+            const pound = getParameterByName('pound');
+            const price = pound === '1 ปอนด์' ? '500 บาท' : '900 บาท';
+            document.getElementById('price').innerText = price;
+        });
+    </script>
+</body>
+</html>

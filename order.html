@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>สั่งออเดอร์เค้กวันเกิด - ร้านเบเกอรี่ของเรา</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* สไตล์ของคุณตามที่มีอยู่ */
+    </style>
+</head>
+<body>
+    <header>
+        <h1>สั่งออเดอร์เค้กวันเกิด - ร้านเบเกอรี่ของเรา</h1>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="index.html">หน้าหลัก</a></li>
+                <li><a href="type.html">ประเภท</a></li>
+                <li><a href="menu.html">เมนู</a></li>
+                <li><a href="order_guide.html">วิธีการสั่งซื้อ</a></li>
+                <li><a href="about.html">เกี่ยวกับเรา</a></li>
+                <li><a href="cart.html">ตะกร้าสินค้า</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="order-form">
+            <h2>กรอกรายละเอียดข้อมูล</h2>
+            <div class="cake-images">
+                <!-- รูปภาพเค้ก -->
+            </div>
+            <form id="orderForm">
+                <!-- ฟอร์มสั่งเค้ก -->
+                <div class="form-group">
+                    <button type="button" onclick="addToCart()">เพิ่มไปยังตะกร้า</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 Our Bakery. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const dateInput = document.getElementById('date');
+            const today = new Date().toISOString().split('T')[0];
+            dateInput.setAttribute('min', today);
+        });
+
+        document.querySelectorAll('input[name="pound"]').forEach(function(el) {
+            el.addEventListener('change', function() {
+                const price = el.value === '1 ปอนด์' ? '500 บาท' : '900 บาท';
+                document.getElementById('price').innerText = price;
+            });
+        });
+
+        function addToCart() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const flavor = document.querySelector('input[name="flavor"]:checked').value;
+            const pound = document.querySelector('input[name="pound"]:checked').value;
+            const date = document.getElementById('date').value;
+            const message = document.getElementById('message').value;
+            const price = document.getElementById('price').innerText;
+
+            const cartItem = {
+                name,
+                email,
+                phone,
+                flavor,
+                pound,
+                date,
+                message,
+                price
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(cartItem);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            document.getElementById('orderForm').reset();
+            alert('เพิ่มสินค้าลงตะกร้าเรียบร้อย');
+        }
+    </script>
+</body>
+</html>
